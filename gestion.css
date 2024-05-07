@@ -1,0 +1,31 @@
+/* Style personnalisé pour la page */
+.container {
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 30px;
+    background-color: #f8f9fa;
+    border: 2px solid #6c757d;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    font-size: 2.5em;
+    margin-bottom: 30px;
+}
+
+.btn {
+    padding: 15px 30px;
+    text-decoration: none;
+    color: #fff;
+    background-color: #b6dade;
+    border-radius: 10px;
+    transition: background-color 0.3s;
+    margin-left: 50px;
+}
+
+.btn:hover {
+    background-color: #1e91a3;
+}
