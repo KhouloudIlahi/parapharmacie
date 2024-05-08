@@ -21,16 +21,18 @@
             display: block;
             margin-bottom: 10px;
         }
-        input[type="submit"] {
-            padding: 10px 20px;
-            background-color: #007bff;
+        .btn {
+            padding: 15px 30px;
+            text-decoration: none;
             color: #fff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
+            background-color: #b6dade;
+            border-radius: 10px;
+            transition: background-color 0.3s;
+            margin-left: 50px;
+            display: inline-block;
         }
-        input[type="submit"]:hover {
-            background-color: #0056b3;
+        .btn:hover {
+            background-color: #1e91a3;
         }
         .error {
             color: red;
@@ -51,7 +53,7 @@
             <label for="photo">Photo :</label>
             <input type="file" id="photo" name="photo" accept="image/*" required>
             
-            <input type="submit" value="Ajouter">
+            <input type="submit" value="Ajouter" class="btn">
         </form>
     </div>
     <?php
@@ -82,12 +84,12 @@
             // Déplacer le fichier téléchargé vers le dossier d'uploads
             if(move_uploaded_file($_FILES['photo']['tmp_name'], $target_file)) {
                 // Préparer et exécuter la requête SQL pour ajouter le produit
-                $stmt = $conn->prepare("INSERT INTO produits (nom, prix, photo) VALUES (?, ?, ?)");
-                $stmt->bind_param("sds", $nom, $prix, $photo);
+                $stmt = $conn->prepare("INSERT INTO produits (nom_p, prix, photo) VALUES (?, ?, ?)");
+                $stmt->bind_param("sds", $nom_p, $prix, $photo);
                 $stmt->execute();
 
                 // Redirection vers une page de confirmation
-                header('Location: view_products.php');
+                header('Location: gest_p.php');
                 exit;
             } else {
                 echo "Erreur lors de l'upload du fichier.";
